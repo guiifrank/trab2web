@@ -15,6 +15,12 @@ window.addEventListener("load", () => {
   renderizarContatos(contatos)
 })
 
+// window.addEventListener("load", () => {
+//   const dadosSalvos = localStorage.getItem("contatos")
+//   if (dadosSalvos) contatos = JSON.parse(dadosSalvos)
+//     renderizarContatos(contatos)
+// })
+
 function salvarNoLocalStorage() {
   localStorage.setItem("contatos", JSON.stringify(contatos))
 }
@@ -91,7 +97,8 @@ buscaInput.addEventListener("input", () => {
   const filtrados = contatos.filter(
     (c) =>
       c.nome.toLowerCase().includes(termo) ||
-      c.email.toLowerCase().includes(termo)
+      c.email.toLowerCase().includes(termo) ||
+      c.telefone.toLowerCase().includes(termo)
   )
   renderizarContatos(filtrados)
 })
